@@ -1,0 +1,168 @@
+ParseUser.logOut();
+
+        if (ParseUser.getCurrentUser() != null){
+
+        Log.i("currentUser", "User Logged in " + ParseUser.getCurrentUser().getUsername());
+
+        } else {
+
+        Log.i("currentUser", "User not logged in");
+
+        }
+
+    /*ParseObject score = new ParseObject("Score");
+    score.put("username","rob");
+    score.put("score", 86);
+    score.saveInBackground(new SaveCallback() {
+      @Override
+      public void done(ParseException e) {
+
+        if (e == null){
+          Log.i("SaveInBackground", "Successful");
+        }
+        else {
+          Log.i("SaveInBackground", "Failed. Error: " + e.toString());
+        }
+      }
+    });*/
+
+    /*ParseQuery<ParseObject> query = ParseQuery.getQuery("Score");
+
+    query.getInBackground("apGnUP1NQy", new GetCallback<ParseObject>() {
+      @Override
+      public void done(ParseObject object, ParseException e) {
+        if (e == null && object != null){
+
+          object.put("score",200);
+          object.saveInBackground();
+
+          Log.i("ObjectValue", object.getString("username"));
+          Log.i("ObjectValue", Integer.toString(object.getInt("score")));
+        }
+      }
+    });*/
+
+//Hands On
+    /*ParseObject tweetObject = ParseObject.create("Tweet");
+    tweetObject.put("user", "hesham");
+    tweetObject.put("tweet", "Hesham is tweeting");
+    tweetObject.saveInBackground(new SaveCallback() {
+      @Override
+      public void done(ParseException e) {
+        if (e == null){
+          Log.i("saveInBackground", "Successful");
+        }
+      }
+    });*/
+
+
+    /*ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("Tweet");
+    parseQuery.getInBackground("nyPsP1Dxqf", new GetCallback<ParseObject>() {
+      @Override
+      public void done(ParseObject object, ParseException e) {
+        if (e == null && object != null){
+
+          object.put("tweet","Modified my tweet");
+
+          object.saveInBackground();
+
+          Log.i("tweet", String.valueOf(object.get("tweet")));
+          Log.i("user", String.valueOf(object.get("user")));
+
+        }
+      }
+    });*/
+
+//Querying all data for a class
+    /*ParseQuery<ParseObject> query = ParseQuery.getQuery("Score");
+
+    //set criteria for the query -- where
+    //query.whereEqualTo("username", "hero");
+    //query.setLimit(1);
+
+    query.findInBackground(new FindCallback<ParseObject>() {
+      @Override
+      public void done(List<ParseObject> objects, ParseException e) {
+        if (e == null){
+
+          if (objects.size() > 0){
+
+            Log.i("findInBackground", "count: " + objects.size());
+
+            for (ParseObject object : objects){
+
+              Log.i("ParseObject", String.valueOf(object.getInt("score")));
+
+            }
+
+          }
+
+        }
+      }
+    });*/
+
+
+//Query with where
+    /*ParseQuery<ParseObject> bonusQuery = ParseQuery.getQuery("Score");
+    bonusQuery.whereGreaterThan("score", 100);
+
+    query.findInBackground(new FindCallback<ParseObject>() {
+      @Override
+      public void done(List<ParseObject> objects, ParseException e) {
+        if (e == null){
+
+          if (objects.size() > 0){
+
+            Log.i("findInBackground", "count: " + objects.size());
+
+            for (ParseObject object : objects){
+              object.put("score", object.getInt("score") + 50);
+
+              object.saveInBackground();
+
+
+              Log.i("ParseObject", String.valueOf(object.getInt("score")));
+
+            }
+
+          }
+
+        }
+      }
+    });*/
+
+
+//Creating Accounts for login
+    /*ParseUser user = new ParseUser();
+
+    user.setUsername("echosaid");
+    user.setPassword("mypass");
+
+    user.signUpInBackground(new SignUpCallback() {
+      @Override
+      public void done(ParseException e) {
+
+        if (e == null){
+
+          Log.i("signUpInBackground", "Successful");
+
+        } else {
+
+          Log.i("signUpInBackground", "Failed");
+
+        }
+
+      }
+    });*/
+
+
+//Sign in
+    /*ParseUser.logInInBackground("echosaid", "myPass", new LogInCallback() {
+      @Override
+      public void done(ParseUser user, ParseException e) {
+        if (user != null){
+          Log.i("Login", "Successful");
+        } else
+          Log.i("Login", "Failed " + e.toString());
+      }
+    });*/
